@@ -1,1 +1,1 @@
-docker run -v $(pwd):/wd -it vios-elf-compiler $@
+docker run -v $(pwd):/src -it vios-elf-compiler $@

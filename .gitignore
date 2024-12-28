@@ -1,6 +1,8 @@
 # vios
 isodir/
+isos/
 out/
+sysroot/
 
 # Prerequisites
 *.d
