@@ -2,6 +2,7 @@ DEFAULT_HOST!=../default-host.sh
 HOST?=DEFAULT_HOST
 HOSTARCH!=../target-triplet-to-arch.sh $(HOST)
 
+NASMFLAGS?=-felf
 CFLAGS?=-O2 -g
 CPPFLAGS?=
 LDFLAGS?=
@@ -48,7 +49,7 @@ $(ARCHDIR)/crtend.o \
 $(ARCHDIR)/crtn.o \
 
 .PHONY: all clean install install-headers install-kernel
-.SUFFIXES: .o .c .S
+.SUFFIXES: .o .c .S .asm
 
 all: vios.kernel
 
@@ -64,6 +65,9 @@ $(ARCHDIR)/crtbegin.o $(ARCHDIR)/crtend.o:
 
 .S.o:
 	$(CC) -MD -c $< -o $@ $(CFLAGS) $(CPPFLAGS)
+
+.asm.o:
+	$(NASM) $(NASMFLAGS) -o $@ $<
 
 clean:
 	rm -f vios.kernel
