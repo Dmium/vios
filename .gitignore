@@ -1,3 +1,7 @@
+# vios
+isodir/
+out/
+
 # Prerequisites
 *.d
 
