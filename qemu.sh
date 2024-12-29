@@ -2,4 +2,4 @@
 set -e
 . ./config.sh
 
-qemu-system-$(./target-triplet-to-arch.sh $HOST) -cdrom isos/vios.iso
+qemu-system-$(./target-triplet-to-arch.sh $HOST) -serial stdio -cdrom isos/vios.iso
